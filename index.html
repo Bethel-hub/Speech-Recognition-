@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' https://static.balsamiq.com/prototype/v1/; style-src 'unsafe-inline' https://static.balsamiq.com/prototype/v1/; font-src https://static.balsamiq.com/prototype/v1/; img-src data: https:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';"/>
+    <title>Accent Training Speech Recognizer</title>
+
+    <!-- Fonts -->
+    <link href="https://static.balsamiq.com/prototype/v1/css/noto-fonts.css" rel="stylesheet"/>
+    <link href="https://static.balsamiq.com/prototype/v1/css/material-symbols-outlined.css" rel="stylesheet"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://static.balsamiq.com/prototype/v1/js/tailwindcss-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d5a6bd",
+                        "secondary": "#c27ba0",
+                        "background": "#ffffff",
+                        "surface": "#fdfdfd",
+                        "border": "#333333",
+                        "text-main": "#333333",
+                        "text-muted": "#80808b",
+                    },
+                    borderRadius: {
+                        "theme": "0.5rem",
+                        "theme-sm": "calc(0.5rem * 0.5)",
+                        "theme-lg": "calc(0.5rem * 1.5)",
+                    },
+                    boxShadow: {
+                        "theme": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Alpine.js Plugins -->
+    <script defer src="https://static.balsamiq.com/prototype/v1/js/alpinejs-collapse-3.14.9.min.js"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://static.balsamiq.com/prototype/v1/js/alpinejs-3.14.9.min.js"></script>
+
+    <style>
+        /* Prevent flash of unstyled content */
+        [x-cloak] { display: none !important; }
+        .font-display { font-family: 'Noto Serif', serif; }
+        .font-body { font-family: 'Noto Sans', sans-serif; }
+    </style>
+
+</head>
+<body class="bg-background text-text-main font-body antialiased min-h-screen"
+      x-data="{ page: 'main', formData: {} }">
+
+<!-- Page: Main Landing -->
+<div x-show="page === 'main'" x-cloak class="min-h-screen bg-background flex flex-col">
+  <header class="w-full bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span data-control-id="19" class="material-symbols-outlined text-[#d5a6bd]">mic</span>
+        <p data-control-id="23" class="text-2xl text-text-main">Speech Recognizer</p>
+      </div>
+      <span data-control-id="20" class="material-symbols-outlined text-text-main">account_circle</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-6 py-12 flex-1">
+    <div class="flex flex-col items-start gap-8">
+      <div class="space-y-4">
+        <h1 data-control-id="11" class="text-5xl font-light text-text-main">Speech Recognizer</h1>
+        <div data-control-id="22" class="w-96 h-px bg-border"></div>
+        <p data-control-id="12" class="text-lg text-text-main">"welcome to Speech Recognizer website!"</p>
+      </div>
+
+      <div class="flex items-center gap-4 mt-4">
+        <span data-control-id="13" class="material-symbols-outlined text-4xl text-[#d5a6bd]">sentiment_satisfied</span>
+        <p data-control-id="55" class="text-text-muted italic max-w-xs">make an impact by making speech recognition diverse!</p>
+      </div>
+
+      <div class="mt-12 w-full max-w-md">
+        <label class="block text-xl mb-4 text-text-main">Select Accent your training for</label>
+        <button data-control-id="16" @click="page = 'select_accent'" class="w-full text-left border border-border rounded-theme px-4 py-3 bg-surface shadow-theme hover:bg-gray-50 flex justify-between items-center group">
+          <span class="text-text-muted">Choose an accent...</span>
+          <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </button>
+        <p data-control-id="35" class="text-sm text-primary mt-2 animate-pulse">Click!</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Page: Select Accent -->
+<div x-show="page === 'select_accent'" x-cloak class="min-h-screen bg-background flex flex-col">
+  <header class="w-full bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" @click="page = 'main'">
+        <span data-control-id="29" class="material-symbols-outlined text-[#d5a6bd]">mic</span>
+        <p data-control-id="31" class="text-2xl text-text-main">Speech Recognizer</p>
+      </div>
+      <span data-control-id="28" class="material-symbols-outlined text-text-main">account_circle</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-6 py-12">
+    <div class="max-w-2xl mx-auto bg-surface rounded-theme-lg shadow-theme p-8">
+      <div class="mb-8">
+        <h2 data-control-id="33" class="text-2xl mb-6 text-text-main">Select Accent your training for</h2>
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-text-muted">search</span>
+          <input data-control-id="42" type="text" x-model="formData['42']" placeholder="search" class="w-full pl-10 pr-4 py-2 border border-border rounded-theme focus:ring-2 focus:ring-primary outline-none">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <button data-control-id="37" @click="page = 'record'" class="px-6 py-3 border border-border rounded-full hover:bg-primary hover:text-white transition-colors">French</button>
+        <button data-control-id="39" @click="page = 'record'" class="px-6 py-3 border border-border rounded-full hover:bg-primary hover:text-white transition-colors">East Asian</button>
+        <button data-control-id="38" @click="page = 'record'" class="px-6 py-3 border border-border rounded-full hover:bg-primary hover:text-white transition-colors">German</button>
+        <button data-control-id="40" @click="page = 'record'" class="px-6 py-3 border border-border rounded-full hover:bg-primary hover:text-white transition-colors">South Asian</button>
+        <button data-control-id="41" @click="page = 'record'" class="px-6 py-3 border border-border rounded-full hover:bg-primary hover:text-white transition-colors">African</button>
+        <button data-control-id="43" @click="page = 'record'" class="px-6 py-3 border border-border rounded-full hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+          More option <span class="material-symbols-outlined text-sm">expand_content</span>
+        </button>
+      </div>
+      <p data-control-id="68" class="text-center text-primary mt-6 animate-bounce">Click!</p>
+    </div>
+  </main>
+</div>
+
+<!-- Page: Record/Train -->
+<div x-show="page === 'record'" x-cloak class="min-h-screen bg-background flex flex-col" x-data="{ recording: false, progress: 0 }">
+  <header class="w-full bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" @click="page = 'main'">
+        <span data-control-id="45" class="material-symbols-outlined text-[#d5a6bd]">mic</span>
+        <p data-control-id="47" class="text-2xl text-text-main">Speech Recognizer</p>
+      </div>
+      <span data-control-id="46" class="material-symbols-outlined text-text-main">account_circle</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-6 py-12 flex flex-col items-center">
+    <div class="w-full max-w-xl bg-surface rounded-theme-lg shadow-theme p-10 text-center">
+      <div data-control-id="48" class="mb-10 p-8 border-2 border-dashed border-border rounded-theme-lg">
+        <p class="text-2xl text-text-main">Hit to Record and Train !</p>
+      </div>
+
+      <div class="relative flex flex-col items-center gap-6">
+        <button data-control-id="14" 
+          @click="recording = !recording; if(recording) { let interval = setInterval(() => { progress += 5; if(progress >= 100) { clearInterval(interval); page = 'complete'; } }, 100) }"
+          class="w-24 h-24 rounded-full flex items-center justify-center transition-all shadow-theme active:scale-95"
+          :class="recording ? 'bg-red-600 animate-pulse' : 'bg-[#e06666] hover:bg-red-500'">
+          <span data-control-id="15" class="material-symbols-outlined text-white text-4xl">mic</span>
+        </button>
+        
+        <div x-show="recording" x-transition class="w-full">
+          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+            <div class="bg-primary h-2.5 rounded-full transition-all duration-300" :style="'width: ' + progress + '%'"></div>
+          </div>
+          <p data-control-id="50" class="text-sm text-text-muted">Training in process ...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Page: Training Complete -->
+<div x-show="page === 'complete'" x-cloak class="min-h-screen bg-background flex flex-col">
+  <header class="w-full bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" @click="page = 'main'">
+        <span data-control-id="61" class="material-symbols-outlined text-[#d5a6bd]">mic</span>
+        <p data-control-id="60" class="text-2xl text-text-main">Speech Recognizer</p>
+      </div>
+      <span data-control-id="62" class="material-symbols-outlined text-text-main">account_circle</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-6 py-12 flex flex-col items-center">
+    <div class="w-full max-w-2xl bg-surface rounded-theme-lg shadow-theme p-12 text-center">
+      <div class="mb-8 flex flex-col items-center gap-4">
+        <span data-control-id="21" class="material-symbols-outlined text-7xl text-[#c27ba0]">check_circle</span>
+        <h2 data-control-id="51" class="text-3xl font-semibold text-text-main">Training Complete!</h2>
+      </div>
+
+      <div class="flex flex-col items-center gap-6">
+        <div class="flex items-center gap-4">
+          <span data-control-id="63" class="material-symbols-outlined text-5xl text-[#d5a6bd]">sentiment_satisfied</span>
+          <div class="flex items-center gap-2">
+            <span data-control-id="58" class="material-symbols-outlined text-text-main">volume_up</span>
+            <a data-control-id="64" @click.prevent="page = 'interact'" class="text-xl text-primary hover:underline font-medium">Start a conversation!</a>
+            <span data-control-id="69" class="material-symbols-outlined text-text-muted">format_quote</span>
+          </div>
+        </div>
+
+        <button data-control-id="57" @click="page = 'interact'" class="mt-4 px-8 py-3 bg-[#d5a6bd] text-white rounded-theme shadow-theme hover:opacity-90 transition-opacity">
+          Interact with speech Recognizer
+        </button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Page: Interact -->
+<div x-show="page === 'interact'" x-cloak class="min-h-screen bg-background flex flex-col">
+  <header class="w-full bg-surface border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" @click="page = 'main'">
+        <span data-control-id="307" class="material-symbols-outlined text-[#d5a6bd]">mic</span>
+        <p data-control-id="306" class="text-2xl text-text-main">Speech Recognizer</p>
+      </div>
+      <span data-control-id="308" class="material-symbols-outlined text-text-main">account_circle</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-6 py-12 flex flex-col items-center">
+    <div class="w-full max-w-2xl bg-surface rounded-theme-lg shadow-theme p-12 text-center flex flex-col items-center gap-8">
+      <p data-control-id="310" class="text-2xl text-text-main">Your Speech Recognition model is ready for Use</p>
+      
+      <div class="relative group">
+        <div data-control-id="52" class="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center border border-border group-hover:bg-gray-200 transition-colors cursor-pointer">
+          <span data-control-id="53" class="material-symbols-outlined text-4xl text-text-main">mic</span>
+        </div>
+        <div class="absolute -bottom-2 -right-2 bg-primary text-white rounded-full p-1 shadow-theme">
+          <span class="material-symbols-outlined text-sm">play_arrow</span>
+        </div>
+      </div>
+
+      <div class="w-full border-t border-border pt-8 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+          <div data-control-id="302" class="w-12 h-12 rounded-full bg-[#e06666] flex items-center justify-center shadow-theme cursor-pointer hover:bg-red-500 transition-colors">
+            <span data-control-id="303" class="material-symbols-outlined text-white text-xl">mic</span>
+          </div>
+          <span class="text-text-muted">Listening...</span>
+        </div>
+        <button data-control-id="300" class="text-text-muted hover:text-text-main transition-colors">
+          <span class="material-symbols-outlined text-4xl">more_horiz</span>
+        </button>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
